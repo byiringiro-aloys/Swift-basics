@@ -153,3 +153,32 @@ class Shape{
 var rectangle = Shape(numberofSides:4)
 //rectangle.numberofSides=4
 print(rectangle.shapeDescription())
+
+func fetchUserId(from server: String) async ->Int{
+    if server == "primary"{
+        return 37
+    }
+    return 401
+}
+
+func fetchUsername(from server: String) async -> String{
+    var userId = await fetchUserId(from: server)
+    if userId == 37{
+        return "Aloys"
+    }
+    else{
+        return "Guest"
+    }
+}
+
+func connectUser(to server: String) async {
+    async let userId = fetchUserId(from: server)
+    async let userName = fetchUsername(from: server)
+    
+    var greeting = await "Welcome \(userName), userId \(userId)"
+    print(greeting)
+}
+
+Task{
+    await connectUser(to: "primary")
+}
