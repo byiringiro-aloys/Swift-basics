@@ -182,3 +182,18 @@ func connectUser(to server: String) async {
 Task{
     await connectUser(to: "primary")
 }
+
+let userId = await withTaskGroup(of: Int.self){group in
+    for server in ["primary","secondary","tertiary"]{
+        group.addTask{
+            return await fetchUserId(from: server)
+        }
+    }
+    
+    var results: [Int] = []
+    
+    for await result in group{
+        results.append(result)
+    }
+    return results
+}
