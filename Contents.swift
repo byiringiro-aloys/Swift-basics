@@ -53,10 +53,19 @@ var weatherData: String? = "Kigali, Rwanda 75 F"
 var dataAvailable = "Welcome"
 
 if let weather = weatherData{
-    dataAvailable="Welcome, \(weather)"
+    dataAvailable = "Welcome \(weather)"
 }
 
 print(dataAvailable)
+
+//for loops
+for i in 1...5{
+    print(i)
+}
+print("=========")
+for j in 1..<5{
+    print(j)
+}
 
 let vegetables: String = ""
 
@@ -116,6 +125,26 @@ func calculateStatistics(scores:[Int])->(min:Int, max:Int, sum:Int){
 
 let statistics = calculateStatistics(scores: [23,3,2,5,75]);
 
+func calculate(numbers: [Int])->(min:Int, max:Int,sum:Int){
+    var min = numbers[0]
+    var max = numbers[0]
+    var sum=0
+    for num in numbers{
+        if num>max{
+            max = num
+        }else{
+            min=num
+        }
+        sum+=num
+    }
+    return (min,max,sum)
+}
+
+var calculation = calculate(numbers: [24,2,445,42,242])
+var sum = calculation.sum
+print(sum)
+
+// closures
 print("The sum is " + String(statistics.0))
 
 func makeIncrement()->((Int)->Int){
