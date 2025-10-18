@@ -147,15 +147,19 @@ print(sum)
 // closures
 print("The sum is " + String(statistics.0))
 
-func makeIncrement()->((Int)->Int){
-    func Increment(number: Int)->Int{
-        return 1+number
+func makeIncrement()->(()->(Int)->Int){
+    func Increment()->((Int)->Int){
+        func Exagrate(number:Int)->Int{
+            return(number)*2
+        }
+        return Exagrate
     }
     return Increment
 }
 
 let increment = makeIncrement()
-print(increment(7))
+let exagrated = increment()
+print(exagrated(2))
 
 let Arrays: [Int] = [24,42,25,64,77]
 
