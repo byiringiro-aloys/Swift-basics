@@ -230,3 +230,32 @@ let userId = await withTaskGroup(of: Int.self){group in
     }
     return results
 }
+
+func greet(name: String?){
+  guard let fullNames = name else{
+  print("Welcome Guest")
+  return 
+  }
+  print("Welcome \(fullNames)")
+}
+
+greet(name:"Aloys")
+
+func addition(from n1:Int,n2:Int)->Int{
+    return n1+n2
+}
+
+print(addition(from: 20,n2:49))
+
+// Structures and classes in swift
+
+struct Person{
+    var name: String
+    var age: Int
+}
+
+let person1 = Person(name: "Aloys",age:17)
+let person2 = Person(name: "Muvunyi",age:18)
+
+print(person1.name)
+print(person2.name)
