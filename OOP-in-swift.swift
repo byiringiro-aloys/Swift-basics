@@ -5,9 +5,10 @@ import Foundation
 protocol Shape {
     func area()->Double    
 }
-
+// fileprivate - file scope 
+// private - class scope or file scope
 class Rectangle: Shape{
-    var radius: Double
+    fileprivate var radius: Double
     let PI=3.14
     init(radius: Double){
         self.radius=radius
@@ -19,6 +20,7 @@ class Rectangle: Shape{
 
 var rectangle = Rectangle(radius: 3.5)
 print(rectangle.area())
+print(rectangle.radius)
 
 class Animal{
     func speak(){
