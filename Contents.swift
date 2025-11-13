@@ -259,3 +259,18 @@ let person2 = Person(name: "Muvunyi",age:18)
 
 print(person1.name)
 print(person2.name)
+
+struct Student{
+    var marks:Float
+    var fullNames:String
+    var age:Int
+
+    init(names fullNames: String, age: Int){
+        self.marks=20
+        self.fullNames=fullNames
+        self.age=age
+    }    
+}
+
+var student1 = Student(names: "Brian",age: 16)
+print(student1)
