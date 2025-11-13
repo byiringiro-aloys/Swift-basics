@@ -8,7 +8,7 @@ protocol Shape {
 
 class Rectangle: Shape{
     var radius: Double
-    let PI=22/7
+    let PI=3.14
     init(radius: Double){
         self.radius=radius
     }
@@ -17,5 +17,20 @@ class Rectangle: Shape{
     }
 }
 
-var rectangle = Rectangle(3.5)
+var rectangle = Rectangle(radius: 3.5)
 print(rectangle.area())
+
+class Animal{
+    func speak(){
+        fatalError("subclasses must implement this method speak")
+    }
+}
+
+class Dog: Animal{
+    override func speak(){
+        print("Mooo!")
+    }
+}
+
+let dog = Dog()
+dog.speak()
