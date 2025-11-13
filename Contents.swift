@@ -249,16 +249,25 @@ print(addition(from: 20,n2:49))
 
 // Structures and classes in swift
 
-struct Person{
+class Person{
     var name: String
     var age: Int
+    init(name:String, age:Int){
+        self.name=name
+        self.age=age
+    }
 }
 
-let person1 = Person(name: "Aloys",age:17)
-let person2 = Person(name: "Muvunyi",age:18)
+class Aloys: Person{
+    func move(){
+        print("\(name) is moving now...")
+    }
+}
+
+let person1 = Aloys(name: "Aloys",age:17)
 
 print(person1.name)
-print(person2.name)
+person1.move()
 
 struct Student{
     var marks:Float
@@ -269,8 +278,12 @@ struct Student{
         self.marks=20
         self.fullNames=fullNames
         self.age=age
-    }    
+    } 
+
+    func whoami(){
+        print("My name is \(fullNames). I got \(marks). I am \(age) old.")
+    }   
 }
 
 var student1 = Student(names: "Brian",age: 16)
-print(student1)
+student1.whoami()
