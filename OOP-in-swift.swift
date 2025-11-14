@@ -51,3 +51,40 @@ class HomeScreem: UIController{
 
 let home = HomeScreem()
 home.viewLoading()
+
+actor BankAccount{
+    private var balance: Double
+
+    init(amount balance: Double){
+        self.balance=balance
+    }
+
+    public func deposit(amount: Double){
+        balance+=amount;
+    }
+
+    public func withdraw(amount: Double){
+        balance -= amount;
+    }
+
+    public func getBalance()->Double{
+        return balance
+    }
+}
+
+//concurrency- with async and await
+
+func runOperations() async {
+    let darius = BankAccount(amount:100)
+    await darius.deposit(amount: 15200.5)
+    let bal = await darius.getBalance()
+    print("Darius balance: \(bal)")
+}
+
+//concurrence - with Task
+Task{
+    let darius = BankAccount(amount:100)
+    await darius.deposit(amount: 15200.5)
+    let bal = await darius.getBalance()
+    print("Darius balance: \(bal)")
+}
