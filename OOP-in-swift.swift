@@ -88,3 +88,23 @@ Task{
     let bal = await darius.getBalance()
     print("Darius balance: \(bal)")
 }
+
+enum networkState{
+    case loading
+    case success(data: String)
+    case failure(error: String)
+}
+
+func handleNetwork(state: networkState){
+    switch state {  
+    case .loading:
+        print("Loading...")
+    case .success(let data):
+        print("Success with data: \(data)")
+    case .failure(let error):
+        print("Failure with error: \(error)")
+}
+}
+
+let state = networkState.success(data:"Aloys fetched in 2s.")
+handleNetwork(state: state)
