@@ -7,7 +7,7 @@ protocol Shape {
 }
 // fileprivate - file scope 
 // private - class scope or file scope
-class Rectangle: Shape{
+internal class Rectangle: Shape{
     fileprivate var radius: Double
     let PI=3.14
     init(radius: Double){
@@ -36,3 +36,18 @@ class Dog: Animal{
 
 let dog = Dog()
 dog.speak()
+
+open class UIController{
+    open func viewLoading(){
+        print("Loading...")
+    }
+}
+
+class HomeScreem: UIController{
+    override func viewLoading(){
+        print("Homescreen loading...")
+    }
+}
+
+let home = HomeScreem()
+home.viewLoading()
