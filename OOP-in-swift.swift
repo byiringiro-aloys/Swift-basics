@@ -49,8 +49,8 @@ class HomeScreem: UIController{
     }
 }
 
-let home = HomeScreem()
-home.viewLoading()
+let home1 = HomeScreem()
+home1.viewLoading()
 
 actor BankAccount{
     private var balance: Double
@@ -108,3 +108,29 @@ func handleNetwork(state: networkState){
 
 let state = networkState.success(data:"Aloys fetched in 2s.")
 handleNetwork(state: state)
+
+enum Screen{
+    case home(fullNames: String)
+    case profile(fullNames: String)
+    case about(fullNames: String)
+    case settings
+}   
+
+func handleNavigation(screen: Screen){
+    switch screen {
+    case .home(let fullNames):
+        print("Welcome \(fullNames) to home page")
+    case .profile(let fullNames):
+        print("Welcome \(fullNames) to profile section")
+    case .about(let fullNames):
+        print("Welcome \(fullNames) to about us section")
+    case .settings:
+        print("Welcome to settings section")
+    }
+}
+
+let homeSection = Screen.home(fullNames: "Alliance")
+handleNavigation(screen: homeSection)
+
+let settingSection = Screen.settings
+handleNavigation(screen: settingSection)
