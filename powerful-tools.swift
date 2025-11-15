@@ -27,3 +27,17 @@ messenger.sendMessage()
 let greet: (String) -> String = { name in
     return "Hello \(name)!"
 }
+
+print(greet("Alliance"))
+
+func swapValues<T>(_ a: inout T,_ b: inout T){
+    let temp = a
+    a=b
+    b=temp
+}
+
+var x=4
+var y=9
+
+swapValues(&x,&y)
+print(x,y)
