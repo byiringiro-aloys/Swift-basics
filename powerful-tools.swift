@@ -23,3 +23,7 @@ let vc = viewController()
 let messenger = Messenger()
 messenger.delegete = vc
 messenger.sendMessage()
+
+let greet: (String) -> String = { name in
+    return "Hello \(name)!"
+}
